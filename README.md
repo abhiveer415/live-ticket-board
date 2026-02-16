@@ -10,6 +10,10 @@ Open the app in two browser windows to see live updates instantly.
 - Real-time updates via SSE (no refresh)
 - PostgreSQL persistence
 
+## Screenshot
+![Live Ticket Board](screenshots/ticketboard.png)
+
+
 ## Tech Stack
 - Frontend: HTML, CSS, Vanilla JS
 - Backend: Node.js, Express
