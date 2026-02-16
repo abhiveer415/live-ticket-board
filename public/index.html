@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Ticket Board</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>Live Ticket Board</h1>
+      <p class="sub">Real-time updates via SSE • Express + Vanilla JS</p>
+    </div>
+    <div class="status-pill" id="connPill">Connecting…</div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Create Ticket</h2>
+      <form id="ticketForm" class="form">
+        <label>
+          Title
+          <input name="title" placeholder="e.g., Invoice mismatch on PO 4500..." required minlength="3" />
+        </label>
+
+        <label>
+          Requester
+          <input name="requester" placeholder="e.g., Abhilash" required minlength="2" />
+        </label>
+
+        <label>
+          Priority
+          <select name="priority">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </label>
+
+        <button type="submit">Add Ticket</button>
+        <p class="error" id="formError"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <h2>Board</h2>
+        <div class="filters">
+          <input id="search" placeholder="Search tickets..." />
+          <select id="statusFilter">
+            <option value="All" selected>All</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="columns" id="columns">
+        <div class="column">
+          <h3>Open</h3>
+          <div class="list" id="colOpen"></div>
+        </div>
+        <div class="column">
+          <h3>In Progress</h3>
+          <div class="list" id="colProgress"></div>
+        </div>
+        <div class="column">
+          <h3>Done</h3>
+          <div class="list" id="colDone"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Tip: open this page in two browser windows — updates appear instantly.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
